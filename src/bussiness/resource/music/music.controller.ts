@@ -1,14 +1,14 @@
 import { Get, Controller, Param, HttpException, HttpStatus, UsePipes, UseGuards, Body, UseInterceptors } from '@nestjs/common';
 import { Music } from '../../../entities/resource/music.entity';
 import { MusicService } from './music.service';
-import { ParamPipe } from '../../../pipe/param.pipe';
-import { AuthGuard } from '../../../guard/auth.guard';
-import { Role } from 'src/guard/role.decorator';
-import { LoggingInterceptor } from 'src/guard/logging.interceptor';
+// import { ParamPipe } from '../../../pipe/param.pipe';
+// import { AuthGuard } from '../../../guard/auth.guard';
+// import { Role } from 'src/guard/role.decorator';
+// import { LoggingInterceptor } from 'src/guard/logging.interceptor';
 
 @Controller('music')
-@Role('admin')
-@UseInterceptors(LoggingInterceptor)
+// @Role('admin')
+// @UseInterceptors(LoggingInterceptor)
 export class MusicController {
 
     constructor(private readonly musicService: MusicService) {}
@@ -31,8 +31,8 @@ export class MusicController {
     }
 
     @Get('id/:id')
-    @UseGuards(AuthGuard)
-    @UsePipes(new ParamPipe('123'))
+    // @UseGuards(AuthGuard)
+    // @UsePipes(new ParamPipe('123'))
     async findOne(@Param() params, @Body() body): Promise<Music> {
         return this.musicService.findOne(params.id);
     }

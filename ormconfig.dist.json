@@ -6,7 +6,8 @@
     "password": "******",
     "database": "perfume",
     "entities": [
-        "src/entities/**/**.entity.ts"
+        "src/**/**.domain.**",
+        "src/**/**.entity.**"
     ],
     "synchronize": true
 }

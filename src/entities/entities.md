@@ -8,3 +8,4 @@
     * music
     * picture
     * video
+    

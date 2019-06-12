@@ -1,33 +1,34 @@
-import { APP_FILTER } from '@nestjs/core';
-import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
+import { Module, NestModule, MiddlewareConsumer, RequestMethod, Injectable } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ResourceModule } from './modules/resource/resource.module';
-import { LoggerMiddleware } from './middleware/logger.middleware';
-import { ErrorFilter } from './middleware/error.filter';
+import { GraphQLModule, GqlOptionsFactory, GqlModuleOptions } from '@nestjs/graphql';
+import { join } from 'path';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    ResourceModule,
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
+      installSubscriptionHandlers: true,
+      autoSchemaFile: 'schema.gql',
+    }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [
     AppService,
-    // {
-    //   provide: APP_FILTER,
-    //   useClass: ErrorFilter,
-    // },
   ],
 })
 
 export class AppModule {
   // configure(consumer: MiddlewareConsumer) {
-  //     console.log('SSSS');
+  //     // console.log('SSSS');
   //     consumer
-  //       .apply(LoggerMiddleware)
-  //       .forRoutes('music');
+  //       .apply(ErrorMiddleware)
+  //       .forRoutes('graphql');
   //       // .forRoutes({ path: 'music', method: RequestMethod.GET });
   //   }
 }
