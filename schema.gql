@@ -71,6 +71,15 @@ input LocationInput {
   district: String
 }
 
+type Music {
+  id: Int!
+  size: Float
+  createdDate: DateTime!
+  src: String
+  arranger: String
+  lyricist: String
+}
+
 type Mutation {
   addUser(user: UserInput!): User!
   modifyUser(user: UserInput!): User!
@@ -102,6 +111,12 @@ input ProfileInput {
 
 type Query {
   user(id: String!): User!
+}
+
+type Resource {
+  id: Int!
+  size: Float
+  createdDate: DateTime!
 }
 
 type User {

@@ -6,6 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule, GqlOptionsFactory, GqlModuleOptions } from '@nestjs/graphql';
 import { join } from 'path';
 import { UserModule } from './user/user.module';
+import { ApiModule } from './api/api.module';
+import { ConfigModule } from './config.module';
+import { ConfigService } from './config.service';
 
 @Module({
   imports: [
@@ -14,13 +17,19 @@ import { UserModule } from './user/user.module';
       typePaths: ['./**/*.graphql'],
       installSubscriptionHandlers: true,
       autoSchemaFile: 'schema.gql',
+      path: '/api/graphql',
     }),
     UserModule,
+    ApiModule,
+    ConfigModule,
   ],
   controllers: [AppController],
   providers: [
     AppService,
   ],
+  exports: [
+    ConfigModule
+  ]
 })
 
 export class AppModule {
