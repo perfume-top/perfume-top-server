@@ -9,6 +9,8 @@ import { UserModule } from './user/user.module';
 import { ApiModule } from './api/api.module';
 import { ConfigModule } from './config.module';
 import { ConfigService } from './config.service';
+import { AdminModule } from './admin/admin.module';
+import { WebModule } from './web/web.module';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { ConfigService } from './config.service';
     UserModule,
     ApiModule,
     ConfigModule,
+    AdminModule,
+    WebModule,
   ],
   controllers: [AppController],
   providers: [
