@@ -23,9 +23,11 @@ $ npm install
 ## Configration
 
 ```bash
-$ cp ormconfig.dist.json ormconfig.json
+$ cp production.env development.env
 
-$ vim ormconfig.json
+# edit server / web / admin root
+# you should git clone perfume-top-web / perfume-top-admin & install
+$ vim development.env
 
 ```
 

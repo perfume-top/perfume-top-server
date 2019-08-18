@@ -4,7 +4,7 @@ import { diskStorage } from 'multer';
 import { v1 } from 'uuid';
 import { UploadService } from './upload.service';
 import { getExtname } from '../../util/file';
-import { config } from 'src/config.service';
+import { config } from '../../config.service';
 
 @Controller('api/upload')
 export class UploadController {

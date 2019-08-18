@@ -36,6 +36,7 @@ export class ConfigService {
     get LOCAL_STATIC_ROOT() {return this.envConfig.LOCAL_STATIC_ROOT;}
     get LOCAL_WEB_ROOT(): string {return this.envConfig.LOCAL_WEB_ROOT;}
     get LOCAL_ADMIN_ROOT() {return this.envConfig.LOCAL_ADMIN_ROOT;}
+
     get STATIC_PREFIX(): string {return this.envConfig.STATIC_PREFIX;}
     get TEMP_FLODER() {return this.envConfig.TEMP_FLODER;}
     get PAGE_404() {return this.envConfig.PAGE_404;}
@@ -44,6 +45,12 @@ export class ConfigService {
     get PAGE_LANDING() {return this.envConfig.PAGE_LANDING;}
     get PAGE_LOGIN() {return this.envConfig.PAGE_LOGIN;}
 
+    get DB_TYPE() {return this.envConfig.DB_TYPE as any;}
+    get DB_HOST() {return this.envConfig.DB_HOST;}
+    get DB_PORT() {return this.envConfig.DB_PORT as any;}
+    get DB_USERNAME() {return this.envConfig.DB_USERNAME;}
+    get DB_PASSWORD() {return this.envConfig.DB_PASSWORD;}
+    get DB_DATABASE() {return this.envConfig.DB_DATABASE;}
 
     get uploadTempFolder(): string {return this.resolveLocal(this.envConfig.TEMP_FLODER);}
 
@@ -70,6 +77,12 @@ export class ConfigService {
             PAGE_ERROR: Joi.string().required(),
             PAGE_LANDING: Joi.string().required(),
             PAGE_LOGIN: Joi.string().required(),
+            DB_TYPE: Joi.string().required(),
+            DB_HOST: Joi.string().required(),
+            DB_PORT: Joi.string().required(),
+            DB_USERNAME: Joi.string().required(),
+            DB_PASSWORD: Joi.string().required(),
+            DB_DATABASE: Joi.string().required(),
           // PORT: Joi.number().default(3000),
           // API_AUTH_ENABLED: Joi.boolean().required(),
         });
