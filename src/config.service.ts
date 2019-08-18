@@ -37,6 +37,8 @@ export class ConfigService {
     get LOCAL_WEB_ROOT(): string {return this.envConfig.LOCAL_WEB_ROOT;}
     get LOCAL_ADMIN_ROOT() {return this.envConfig.LOCAL_ADMIN_ROOT;}
 
+    get PORT() {return this.envConfig.PORT as any;}
+
     get STATIC_PREFIX(): string {return this.envConfig.STATIC_PREFIX;}
     get TEMP_FLODER() {return this.envConfig.TEMP_FLODER;}
     get PAGE_404() {return this.envConfig.PAGE_404;}
@@ -69,6 +71,7 @@ export class ConfigService {
             LOCAL_STATIC_ROOT: Joi.string().required(),
             LOCAL_WEB_ROOT: Joi.string().required(),
             LOCAL_ADMIN_ROOT: Joi.string().required(),
+            PORT: Joi.string().required(),
             STATIC_PREFIX: Joi.string().required(),
             TEMP_FLODER: Joi.string().required(),
             USER_AVATAR_FLODER: Joi.string().required(),

@@ -29,7 +29,7 @@ async function bootstrap() {
 
   app.useGlobalFilters(new HttpExceptionFilter);
 
-  await app.listen(3000);
+  await app.listen(config.PORT || 3000);
   
 }
 bootstrap();
