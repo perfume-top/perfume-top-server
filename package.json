@@ -37,7 +37,7 @@
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.2",
-    "type-graphql": "^0.17.4",
+    "type-graphql": "^0.17.6",
     "typeorm": "^0.2.17",
     "typescript": "^3.0.1",
     "uuid": "^3.3.2"
